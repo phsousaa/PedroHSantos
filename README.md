@@ -1,20 +1,25 @@
-##Como adicionar novas Pesquisas na página "research.html"
+## Como adicionar novas Pesquisas na página "research.html"
 
+Coloque a entrada abaixo dentro da seção de pesquisas. O trecho está como bloco de código para evitar renderização de HTML no README:
+
+```html
 <article class="card">
     <h3>Ano</h3>
-        <p>
-            <a href="link do DOI" target="_blank">
-                <span class="inline-doi-icon">
-                    <picture>
+    <p>
+        <a href="link do DOI" target="_blank">
+            <span class="inline-doi-icon">
+                <picture>
                     <img src="assets/icons/orcid.png" alt="icon">
-                    </picture>
-                </span>
-            </a>
+                </picture>
+            </span>
+        </a>
 
-            Autores.
-            Título.
-            <strong>Nome do Periódico ou Conferência</strong>, local, volume(número), páginas, ano. DOI: xx.xxxx/xxxxx     
-        </p>
-            
+        Autores.
+        Título.
+        <strong>Nome do Periódico ou Conferência</strong>, local, volume(número), páginas, ano. DOI: xx.xxxx/xxxxx
+    </p>
+
     <hr class="entry-sep" />
 </article>
+```
+
