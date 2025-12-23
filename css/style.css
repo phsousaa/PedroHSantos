@@ -1,0 +1,112 @@
+/* Simple responsive styles */
+:root{--accent:#0b63d1;--muted:#666;--text:#111;--bg:#ffffff;--card-bg:#fafafa;--border:#f0f0f0;--nav-text:#2b2b2b}
+*{box-sizing:border-box}
+body{font-family:'Open Sans', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;margin:0;color:var(--text);line-height:1.5;background:var(--bg);transition:background-color .25s ease,color .25s ease}
+.container{max-width:920px;margin:0 auto;padding:1.25rem}
+.site-header{background:#071024;border-bottom:1px solid var(--border)}
+.site-header .container{display:flex;align-items:center;justify-content:center}
+.logo{font-weight:600;color:#c2cdff;text-decoration:none}
+.main-nav a{color:#c2cdff;text-decoration:none;margin-left:1rem;display:inline-flex;align-items:center;font-size:0.95rem}
+.main-nav img{width:18px;height:18px;margin-right:8px;opacity:0.9}
+
+/* Intro layout like the example: photo left, text right */
+.intro{display:flex;gap:1.5rem;padding:2rem 0;align-items:flex-start}
+.intro-left{flex:0 0 200px}
+.me{width:200px;height:200px;object-fit:cover;border-radius:6px;display:block;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+.intro-right{flex:1}
+.name{font-family:'Open Sans', Arial, sans-serif;font-size:2.4rem;font-weight:700;margin:0 0 .25rem;letter-spacing:-0.3px}
+.title{margin:0 0 .5rem;color:var(--muted);font-style:italic}
+.inline-icon{display:inline-block;vertical-align:middle;margin-right:5px}
+.inline-icon img{width:35px;height:35px;display:inline-block;vertical-align:middle}
+.inline-doi-icon{display:flex;vertical-align:middle;margin-right:5px;margin-bottom:5px;}
+.inline-doi-icon img{width:24px;height:24px;display:inline-block;vertical-align:middle}
+.summary{margin-top:0;color:var(--text);max-width:60ch;}
+.links a{color:var(--accent);text-decoration:none;margin-right:.6rem}
+.icons a{margin-right:.6rem;color:var(--muted);text-decoration:none}
+
+.more{margin-top:1.5rem}
+.more h2{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{border:1px solid var(--border);padding:1rem;border-radius:6px;background:var(--card-bg);margin-bottom:10px;}
+
+.site-footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:2rem;color:var(--muted);text-align: center;}
+
+/* Social icons centered */
+.socials{padding:2rem 0;text-align:center}
+.socials h2{margin-bottom:1rem}
+.social-icons{display:flex;gap:1rem;justify-content:center;align-items:center}
+.social-link{display:inline-block;width:42px;height:42px;border-radius:8px;text-decoration:none;box-shadow:0 2px 6px rgba(2,6,23,0.04);background-repeat:no-repeat;background-position:center;background-size:30px 30px;border:1px solid var(--border);background-color:var(--card-bg);transition:transform .18s ease,filter .18s ease}
+.social-link:hover{transform:translateY(-4px);filter:brightness(1.03)}
+
+/* Default classes - replace URLs with your PNGs in assets/icons/ when ready */
+.social-link.instagram{background-image:url('../assets/icons/instagram.png')}
+.social-link.bluesky{background-image:url('../assets/icons/bluesky.png')}
+.social-link.x{background-image:url('../assets/icons/x.png')}
+.social-link.linkedin{background-image:url('../assets/icons/linkedin.png')}
+.social-link.gmail{background-image:url('../assets/icons/gmail.png')}
+
+/* If you prefer to include <img> tags instead of CSS backgrounds, these ensure sizing inside the link */
+.social-link img{display:block;width:40px;height:40px;object-fit:contain}
+
+@media(max-width:420px){
+	.social-link{width:52px;height:52px}
+	.social-link svg{width:36px;height:36px}
+}
+
+/* Separator used in research entries */
+.entry-sep{border:0;height:1px;background:var(--border);margin:0.8rem 0;border-radius:2px}
+
+/* Dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+	:root{
+		--bg:#071024; /* dark blue */
+		--card-bg:#071828;
+		--text:#e6eef8;
+		--muted:#9fb1c9;
+		--border:rgba(255,255,255,0.06);
+		--accent:#4da3ff;
+		--nav-text:#cfe8ff
+	}
+	.me{box-shadow:0 8px 22px rgba(2,6,23,0.6)}
+}
+
+@media(max-width:820px){
+	.intro{flex-direction:column;align-items:center;text-align:center}
+	.intro-left{flex:0 0 auto}
+	.me{width:140px;height:140px}
+	.name{font-size:1.8rem}
+}
+
+/* Avatar carousel (portrait) */
+.profile{display:flex;gap:1.5rem;align-items:flex-start;padding:2rem 0}
+.avatar-carousel{width:220px;height:360px;overflow:hidden;border-radius:12px;position:relative;margin:0 1.25rem 1rem 0;flex:0 0 220px}
+.avatar-carousel .slides{display:flex;height:100%;transition:transform .4s ease}
+.avatar-carousel .slide{min-width:100%;height:100%}
+.avatar-carousel img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);border:0;background:rgba(0,0,0,0.06);color:var(--text);width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.carousel-btn.prev{left:8px}
+.carousel-btn.next{right:8px}
+.carousel-btn:hover{background:rgba(0,0,0,0.12)}
+
+@media (prefers-color-scheme: dark){
+  .carousel-btn{background:rgba(255,255,255,0.04);color:var(--text)}
+  .carousel-btn:hover{background:rgba(255,255,255,0.08)}
+}
+
+@media(max-width:720px){
+  .avatar-carousel{width:160px;height:260px}
+}
+
+/* Landscape gallery */
+.gallery{padding:1.5rem 0}
+.gallery h2{margin:0 0 .75rem}
+.gallery-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.gallery-row img{width:100%;height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--border);display:block}
+
+@media(max-width:820px){
+	.gallery-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+	.gallery-row{grid-template-columns:1fr}
+	.gallery-row img{height:200px}
+}
